@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center"><strong>Rot 13</strong></div>
+                <div class="panel-body">
+                    <form role="form" method="post">
+                        <div class="form-group">
+                            <label for="text">Please enter your to Rot Text</label>
+                            <textarea id="text" name="text" class="form-control">{{ text }}</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-comment"></span> Submit</button>
+                    </form>
+                </div>
+            </div>
+{% endblock %}

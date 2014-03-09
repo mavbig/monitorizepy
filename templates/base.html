@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-sacle=1.0">
+    <title>Blog</title>
+    <!-- CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="../css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="../css/plugins/timeline/timeline.css" rel="stylesheet">
+    <link href="../css/sb-admin.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        {% if username is defined %}
+        <a class="navbar-brand" href="#">Hi, {{ username }}!</a>
+        {% else %}
+        <a class="navbar-brand" href="#">Hi, Stranger!</a>
+        {% endif %}
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="/blog"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/rot13"><span class="glyphicon glyphicon-random"></span> Rot 13</a></li>
+                <li><a href="/welcome"><span class="glyphicon glyphicon-heart-empty"></span> Welcome</a></li>
+                <li><a href="/blog/newpost"><span class="glyphicon glyphicon-comment"></span> Newpost</a></li>
+                {% if user == "" %}
+                <li><a href="/signup"><span class="glyphicon glyphicon-new-window"></span> Signup</a></li>
+                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                {% endif %}
+                {% if user != "" %}
+                <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                {% endif %}
+            </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div id="wrapper">
+        <div class="page-header">
+            <h1 class="text-center"><a href="/blog">Blog</a></h1>
+        </div>
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <!-- Core Scripts - Include with every page -->
+    <script src="../js/jquery-1.10.2.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+    <!-- Page-Level Plugin Scripts - Dashboard -->
+    <script src="../js/plugins/morris/raphael-2.1.0.min.js"></script>
+    <script src="../js/plugins/morris/morris.js"></script>
+
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="../js/sb-admin.js"></script>
+
+    <!-- Page-Level Demo Scripts - Dashboard - Use for reference -->
+    <script src="../js/demo/dashboard-demo.js"></script>
+</body>
+</html>

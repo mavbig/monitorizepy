@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+            {% for blogpost in blogentries %}
+            <div class="panel panel-primary">
+                <div class="panel-heading">{{  blogpost.title }}</div>
+                <div class="panel-body">
+                    {{ blogpost.text.replace('\n', '<br>')| safe }}
+                </div>
+                <div class="panel-footer"><small>{{ blogpost.created.strftime("%b %d, %Y") }} </small></div>
+            </div>
+            {% endfor %}
+
+{% endblock %}

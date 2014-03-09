@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center"><strong>Signup</strong></div>
+                <div class="panel-body">
+                    <form role="form" method="post">
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" value="{{username}}" class="form-control" placeholder="Enter your Username...">
+                            {% if error_username is defined %}
+                                <br>
+                                <div class="alert alert-danger">
+                                    {{ error_username }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" value="{{password}}" class="form-control" placeholder="Enter your Password...">
+                            {% if error_password is defined %}
+                                <br>
+                                <div class="alert alert-danger">
+                                    {{ error_password }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="verify">Password Repeat</label>
+                            <input type="password" name="verify" id="verify" value="{{verify}}" class="form-control" placeholder="Re-Enter your Password...">
+                            {% if error_verify is defined %}
+                                <br>
+                                <div class="alert alert-danger">
+                                    {{ error_verify }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" name="email" id="email" value="{{email}}" class="form-control" placeholder="Optional E-Mail address...">
+                            {% if error_email is defined %}
+                                <br>
+                                <div class="alert alert-danger">
+                                    {{ error_email }}
+                                </div>
+                            {% endif %}
+                        </div>
+                        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-comment"></span> Submit</button>
+                    </form>
+                </div>
+            </div>
+
+
+{% endblock %}
